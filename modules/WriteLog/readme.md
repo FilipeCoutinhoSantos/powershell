@@ -1,10 +1,12 @@
 # WriteLog Module
-I've seen many PowerShell scripts in my career.  Fantastic ones and awful ones.  But I have very very rarely seen scripts where proper logging has been done.  Everyone seems to know write-output.  The clever ones know write-verbose and write-warning.  Some are really smart and write their own logging functions, allowing some level of customization.
+I've seen many PowerShell scripts in my career.  Fantastic ones and aweful ones.  But I have very very rarely seen scripts where proper logging has been done.  Everyone seems to know write-output.  The clever ones know write-verbose and write-warning.  Some are really smart and write their own logging functions, allowing some level of customization.
 
 But...
 
 If you really want to show off with your logging, you need the full monty.  You want screen logging, rolling log files with automated time-stamps and you want event viewer logging.  Obviously, you want to have control of what and when.
 Well, today is you lucky day, because I've written it for you :)
+
+Visit more info on my blog : [http://www.wfaguy.com/2016/12/powershell-logging-professional-way.html](http://wfaguy.com)
 
 ## Log4Net
 If you want professional logging, why re-invent the wheel in the first place.  Microsoft wrote this dll ages ago and it does the job flawlessly.  But you need to know how it works.  It took me a very long time to have it configured correctly.
