@@ -6,8 +6,6 @@ I'm pretty sure, I know I did, you have made the common mistake of rezipping the
 
 Anyhow, I bumped into the same issue over and over this week (my local wfa = 4.1 and my customer was on 4.0), so I (finally) build a powershell script (even better : a module) that will do this for you.
 
-
-
 # Notes
 * This isn't a guaranteed fix.  If your workflows are using new features, it might still not work.
 * Add your own manifests if needed
