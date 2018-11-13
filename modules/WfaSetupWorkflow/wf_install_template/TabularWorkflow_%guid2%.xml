@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<tabularWorkflow considerReservedElements="true" description="The workflow copies or removes %name%." enableElementExistenceValidation="true" name="Copy or Remove %name%" readyForProduction="true">
+<tabularWorkflow considerReservedElements="true" description="The workflow copies or removes %name%." enableElementExistenceValidation="true" name="%workflowname%" readyForProduction="true">
     <certification>PS</certification>
     <lockedBy>admin</lockedBy>
     <uuid>%guid2%</uuid>

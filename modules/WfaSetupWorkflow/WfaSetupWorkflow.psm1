@@ -67,7 +67,11 @@ function New-WfaSetupWorkflow
 
         # Name of the package you want installed (friendly name)
         [Parameter(Mandatory=$true)]
-        [string]$Name,       
+        [string]$Name,    
+        
+        # Name of the eventual install workflow
+        [Parameter(Mandatory=$true)]
+        [string]$WorkflowName,             
         
         # destination path type of the package you want installed (module, custom, wfa)
         [Parameter(Mandatory=$true)]
@@ -133,6 +137,7 @@ function New-WfaSetupWorkflow
     % {$_ -replace '%guid6%',$guid6} |     
     % {$_ -replace '%guid7%',$guid7} |       
     % {$_ -replace '%name%',([System.Security.SecurityElement]::Escape($Name))} |
+    % {$_ -replace '%workflowname%',([System.Security.SecurityElement]::Escape($WorkflowName))} |    
     % {$_ -replace '%custompath%',([System.Security.SecurityElement]::Escape($CustomPath))} |         
     % {$_ -replace '%dirname%',([System.Security.SecurityElement]::Escape($DestinationFolderName))} |
         Out-File $tempdir\TabularWorkflow_%guid2%.xml -Encoding "UTF8"        
