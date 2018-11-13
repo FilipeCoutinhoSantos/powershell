@@ -20,6 +20,7 @@ I've done it before with my PSWord/PSExcel installer, but it's a bit of a messy 
 ## New-WfaSetupWorkflow Parameters
 - path : path of your files (it will not copy the parent directory, only the files in it)
 - name : a short friendly name of your package/files
+- workflow name : the name of the eventual install workflow
 - destination folder name : the name of your destination folder
 - destination type : the type of destination (module/wfa/custom)
 - custom path : the custom destination path (if custom is chosen)
