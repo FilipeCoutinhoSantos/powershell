@@ -45,7 +45,7 @@ The files will always be copied into a sub folder.  it's the only way to also pr
 ## Examples
 ``` powershell
 New-WfaSetupWorkflow -Path C:\temp\svmtool -DestinationFolderName svmtool -Name "Svm Dr Module" -WorkflowName "Svm Dr - Install Module" -DestinationPathType Module
-Generating your dar for ''
+Generating your dar for 'Svm Dr Module'
 
 
     Directory: C:\Users\Mirko\Documents\GitHub\powershell\modules
@@ -87,7 +87,7 @@ Find your new dar file in [C:\Users\Mirko\Documents\GitHub\powershell\modules\Wf
 ```
 ```powershell
 New-WfaSetupWorkflow -Path C:\temp\demo -DestinationFolderName demo -Name "Demo Files" -WorkflowName "Copy demo files to Wfa" -DestinationPathType Custom -CustomPath c:\temp
-Generating your dar for ''
+Generating your dar for 'Demo Files'
 
 7-Zip (A) 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18
 Scanning

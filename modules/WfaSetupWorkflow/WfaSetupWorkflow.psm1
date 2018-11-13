@@ -85,7 +85,7 @@ function New-WfaSetupWorkflow
 
     $CommandDefinition = ("CommandDefinition{0}_%guid1%.xml" -f $DestinationPathType)
 
-    Write-Host "Generating your dar for '$FriendlyName'"
+    Write-Host "Generating your dar for '$Name'"
     $guid1 = New-Guid # guid for command
     $guid2 = New-Guid # guid for workflow
     $guid3 = New-Guid # guid for parameter
