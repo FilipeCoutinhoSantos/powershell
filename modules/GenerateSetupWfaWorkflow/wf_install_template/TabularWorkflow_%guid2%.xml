@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tabularWorkflow considerReservedElements="true" description="The workflow copies or removes %name%." enableElementExistenceValidation="true" name="Copy or Remove %name%" readyForProduction="true">
+    <certification>PS</certification>
+    <lockedBy>admin</lockedBy>
+    <uuid>%guid2%</uuid>
+    <version>1.0.0</version>
+    <workflow-commands>
+        <workflow-command breakpointBeforeCommand="false" commandAlias="Manage %name%" uuid="%guid4%">
+            <execution-condition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="alwaysCondition"/>
+            <command-definition>%guid1%</command-definition>
+        </workflow-command>
+    </workflow-commands>
+    <custom-http-method-type>NA</custom-http-method-type>
+    <find-charts/>
+    <return-parameters/>
+    <rows>
+        <row>
+            <command-details>
+                <command-detail failureStrategy="ABORT">
+                    <command-mapped-objects/>
+                    <execution-condition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="alwaysCondition"/>
+                    <other-parameters>
+                        <command-parameter-value value="$Action">
+                            <parameter-definition>%guid3%</parameter-definition>
+                        </command-parameter-value>
+                        <command-parameter-value value="$DestinationPath">
+                            <parameter-definition>%guid6%</parameter-definition>
+                        </command-parameter-value>                        
+                    </other-parameters>
+                    <workflow-command>%guid4%</workflow-command>
+                </command-detail>
+            </command-details>
+            <execution-condition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="alwaysCondition"/>
+        </row>
+    </rows>
+    <user-input-groups>
+        <user-input-group expandByDefault="false" name="">
+            <user-inputs>
+                <user-input defaultValue="" locked="false" mandatory="true" name="$Action" uuid="%guid5%">
+                    <user-input-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="enumUserInputType" enumValues="Copy,Remove" viewAsRadio="false"/>
+                </user-input>
+                <user-input defaultValue="&quot;%custompath%&quot;" description="Wrap the path in quotes, this avoids escaping the backslash character." displayName="Destination Path" locked="false" mandatory="true" name="$DestinationPath" uuid="%guid7%">
+                    <user-input-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="stringUserInputType" regularExpression="^&quot;.*&quot;$"/>
+                </user-input>                
+            </user-inputs>
+        </user-input-group>
+    </user-input-groups>
+    <workflow-constants/>
+</tabularWorkflow>

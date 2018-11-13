@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<commandDefinition name="Manage copy of module %name%" samplingIntervalInSeconds="60" stringRepresentation="action + ' %name%'" timeoutInSeconds="600" type="STANDARD">
+    <certification>PS</certification>
+    <lockedBy>admin</lockedBy>
+    <uuid>%guid1%</uuid>
+    <version>1.0.0</version>
+    <command-implementations>
+        <command-implementation>
+            <command>param (
+  [parameter(Mandatory=$true, HelpMessage=&quot;Action - Copy or Remove&quot;)]
+  [ValidateSet(&quot;Copy&quot;,&quot;Remove&quot;)]
+  [string] $action
+)
+
+Add-Type -AssemblyName System.IO.Compression.FileSystem
+function Invoke-Unzip
+{
+    param([string]$zipfile, [string]$outpath)
+    [System.IO.Compression.ZipFile]::ExtractToDirectory($zipfile, $outpath)
+}
+
+#  Description: Copy (from .zip) or Remove module %name%
+#
+#  Change-History:
+#    1.0.0 - initial Code
+#
+#  Where is the file?
+
+$wfaCurrentPath = Get-Location
+$wfaPoSHModulesPath = &quot;..\..\..\..\PoSH\Modules&quot;
+$wfaHelpFilesPath = &quot;..\..\workflow-help&quot;
+$wfaWorkflowUUID = &quot;%guid2%&quot;
+$wfaZipFilePath = &quot;..\..\..\..\jboss\standalone\help.war\workflow\TabularWorkflow_$wfaWorkflowUUID\files\%dirname%.zip.jpg&quot;
+
+if($action -eq &quot;Copy&quot;) {
+	If(-not (Test-Path -path $wfaPoSHModulesPath\%dirname%)){
+		Get-WFALogger -info -message &quot;Copying module into: $wfaPoSHModulesPath\%dirname%&quot;
+        new-item -itemtype directory -path $wfaPoSHModulesPath -name %dirname%
+		Invoke-Unzip -ZipFile $WfaZipFilePath -OutPath &quot;$wfaPoSHModulesPath\%dirname%&quot;
+		Get-WFALogger -info -message &quot;Copying success&quot;	
+	}else{
+		Get-WFALogger -warn -message &quot;%name% already copied&quot;		
+	}
+}else{
+	Get-WFALogger -info -message &quot;Removing wfa module %name%&quot;
+	Remove-Item -Path $wfaPoSHModulesPath\%dirname% -Recurse -Confirm:$false
+}
+
+</command>
+            <commandLanguage>POWER_SHELL</commandLanguage>
+        </command-implementation>
+    </command-implementations>
+    <parameter-mappings>
+        <parameter-mapping objectName="action" parameterName="action"/>
+    </parameter-mappings>
+    <congruenceTest></congruenceTest>
+    <description>Copy or Remove '%name%' into WFA's PoSH module path</description>
+    <parameter-definitions>
+        <parameter-definition description="Action - Copy or Remove" enumValues="Copy,Remove" isMandatory="true" name="action" type="Enum">
+            <uuid>%guid3%</uuid>
+        </parameter-definition>
+    </parameter-definitions>
+    <reservationScript></reservationScript>
+    <schemeNames></schemeNames>
+</commandDefinition>
